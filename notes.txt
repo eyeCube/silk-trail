@@ -1,0 +1,23 @@
+path:
+
+Xi'an, China
+-> Lanzhou, China 250mi
+-> Yumen, China 400mi
+-> Dunhuang, China 50mi
+
+NW path (1000mi, easier but longer path, colder climate, rockier terrain)
+	-> Hami, China 200mi
+	-> Turpan, China 150mi
+	-> Urumqi, China 50mi
+	-> Dzungaria, China 200mi
+	200mi to Turugart
+SW path (shorter @ 800mi but one LONG 500mi stretch w/ no stops; hotter climate, sandier terrain)
+	-> Hotan Prefecture, China 500mi
+	-> Yarkant Prefecture, China 200mi
+	-> Kashgar Prefecture, China 50mi
+	50mi to Turugart
+	
+	
+-> Turugart Pass, 50mi or 200mi depending on path taken
+-> Kokand, Uzbekistan 150mi
+-> Tashkent, Uzbekistan 50mi
