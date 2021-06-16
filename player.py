@@ -121,7 +121,7 @@ class Player:
         return max(0, min(camelMax, self.saddlebags*SADDLEBAG_KG))
     def get_carry_weight(self):
         return ceil(
-            (self.food + self.water + self.guns*GUNS_WEIGHT)/OZKG
+            (self.food + self.water + self.guns*GUNS_WEIGHT)/OZLB
             )
     def get_defense(self):
         return min(len(self.characters), self.guns)
