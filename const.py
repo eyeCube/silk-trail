@@ -6,32 +6,39 @@
 STATUS_HEALTHY      = 0
 STATUS_ = 1
 
-CAMEL       = 0
-SADDLEBAG   = 1
-GUN         = 2
-BULLET      = 3
+SILVER      = 0
+GOLD        = 1
+SILK        = 2
+GRAIN       = 3
 FOOD        = 4
 WATER       = 5
 TORCH       = 6
 TINDER      = 7
 CLOAK       = 8
+SILK        = 9
+CAMEL       = 10
+SADDLEBAG   = 11
+SPEAR       = 12
 
 ITEMS={
-    # item      : name,         weight, price,  price_rise
-    CAMEL       :("camel",      0,      800,    10,),
-    SADDLEBAG   :("saddlebag",  0,      50,     10,),
-    GUN         :("gun",        OZKG*4, 400,    100,),
-    BULLET      :("bullet",     0,      1,      10,),
-    FOOD        :("food",       1,      10,     100,),
-    WATER       :("water",      1,      1,      100,),
-    TORCH       :("torch",      8,      50,     10,),
-    TINDER      :("tinder",     0,      5,      10,),
-    CLOAK       :("cloak",      20,     20,     10,),
+    # item      : name,         weight, price,  price_delta
+    SILVER      :("silver",     0,      1,      1,),
+    GOLD        :("gold",       0,      10,     1,),
+    SILK        :("silk",       1,      10,     10,),
+    GRAIN       :("grain",      1,      4,      0.25,),
+    CAMEL       :("camel",      0,      200,    0.5,),
+    SADDLEBAG   :("saddlebag",  0,      50,     0.5,),
+    SPEAR       :("spear",      OZLB*2, 100,    4,),
+    FOOD        :("food",       1,      1,      4,),
+    WATER       :("water",      1,      4,      0.25,),
+    TORCH       :("torch",      10,     3,      1,),
+    TINDER      :("tinder",     0,      1,      1,),
+    CLOAK       :("cloak",      20,     20,     1,),
 }
 
-OZKG                = 36    # oz. in a KG
-SADDLEBAG_KG        = 50    # max capacity per saddlebag (need camels)
-CAMEL_CARRY         = 450   # max kg carry capacity per camel (need saddlebags)
+OZLB                = 12    # oz. in a pound
+SADDLEBAG_LB        = 50    # max capacity per saddlebag (need camels)
+CAMEL_CARRY         = 480   # max kg carry capacity per camel (need saddlebags)
 CAMEL_CARRY_PENALTY = 30    # per unit of intensity of travel
 
 SATIETY_MAX         = 72000
@@ -151,7 +158,7 @@ EVENTS=[ # idea: instead of doing this, just make a big function that handles
         "data":{
             "n1":(1,1,2,2,3,),
             "i1":(CAMEL, SADDLEBAG, GUN, CLOAK, TORCH,),
-            "n2":(OZKG,OZKG*2,OZKG*3,OZKG*4,OZKG*5,),
+            "n2":(OZLB,OZLB*2,OZLB*3,OZLB*4,OZLB*5,),
             "i2":(FOOD, WATER, BULLET,),
         },
     },
