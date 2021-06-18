@@ -20,10 +20,9 @@ class Character:
         self.dead = False
         self._player = player
         self._name = name
-        self._hp = hp       # health, includes tiredness / sleepiness
+        self._hp = hp       # health, includes tiredness / sleepiness / hydration
         self._hp_max = hp
         self._satiety = SATIETY_MAX
-        self._hydration = HYDRATION_MAX
         self._status = STATUS_HEALTHY
 
     def __str__(self):
@@ -86,7 +85,8 @@ class Character:
 # end class
 
 class Player:
-    def __init__(self, month=1): # after init, call initialize_ function(s)
+    def __init__(self, month=1, startloc="Xi'an"):
+        # after init, call initialize_ function(s)
         self.characters = {}
         self.tokill = set()
         self.day = 1
@@ -103,6 +103,7 @@ class Player:
         self.tinder = 0     # one use per tinder; required to start a fire.
         self.weather = WEATHER_FAIR
         self.pace = PACE_STOPPED
+        self.location = startloc
     # end def
         
     def initialize_characters(self):

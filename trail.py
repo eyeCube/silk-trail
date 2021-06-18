@@ -4,7 +4,7 @@ from const import *
 class Place:
     def __init__(self,
         name:str,
-        kind:int, region:int, terrain:int, climate:int,
+        kind:int, region:int, terrain:int, climate:int, govt:int,
         length=0
         ):
         '''
@@ -20,6 +20,7 @@ class Place:
         self.region = region
         self.terrain = terrain
         self.climate = climate
+        self.govt = govt
         self.length = length
 
 class CaravanTrail:
@@ -29,53 +30,137 @@ class CaravanTrail:
         
         zhengzhou = Place(
             "Zhengzhou",
-            PLACE_CITY, REGION_EASTCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_CAPITAL, REGION_EASTCHINA, TERRAIN_OASIS,
+            CLIMATE_TEMPERATE, GOVT_YUAN,
+            length = 0,
+            _west1 = "Zhengzhou-Xi'an", _east1 = None
+            )
+        zhengzhou_xian = Place(
+            "Zhengzhou-Xi'an",
+            PLACE_ROAD, REGION_EASTCHINA, TERRAIN_G_D,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 300,
+            _west1 = "Xi'an", _east1 = "Zhengzhou"
             )
         xian = Place(
             "Xi'an",
-            PLACE_CAPITAL, REGION_CENTRALCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_CAPITAL, REGION_CENTRALCHINA, TERRAIN_OASIS,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 0,
+            _west1 = "Xi'an-Baoji", _east1 = "Zhengzhou-Xi'an"
+            )
+        xian_baoji = Place(
+            "Xi'an-Baoji",
+            PLACE_ROAD, REGION_EASTCHINA, TERRAIN_G_D,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 110,
+            _west1 = "Baoji", _east1 = "Xi'an"
             )
         baoji = Place(
             "Baoji",
-            PLACE_CITY, REGION_CENTRALCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_CITY, REGION_CENTRALCHINA, TERRAIN_OASIS,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 0,
+            _west1 = "Baoji-Tianshui", _east1 = "Xi'an-Baoji"
+            )
+        baoji_tianshui = Place(
+            "Baoji-Tianshui",
+            PLACE_ROAD, REGION_EASTCHINA, TERRAIN_G_D,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 110,
+            _west1 = "Tianshui", _east1 = "Baoji"
             )
         tianshui = Place(
             "Tianshui",
-            PLACE_CITY, REGION_CENTRALCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_CITY, REGION_CENTRALCHINA, TERRAIN_OASIS,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 0,
+            _west1 = "Tianshui-Lanzhou", _east1 = "Baoji-Tianshui"
+            )
+        tianshui_lanzhou = Place(
+            "Tianshui-Lanzhou",
+            PLACE_ROAD, REGION_EASTCHINA, TERRAIN_G_D,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 190,
+            _west1 = "Lanzhou", _east1 = "Tianshui"
             )
         lanzhou = Place(
             "Lanzhou",
-            PLACE_CITY, REGION_CENTRALCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_CITY, REGION_CENTRALCHINA, TERRAIN_OASIS,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 0,
+            _west1 = "Lanzhou-Liangzhou", _east1 = "Tianshui-Lanzhou"
+            )
+        lanzhou_liangzhou = Place(
+            "Lanzhou-Liangzhou",
+            PLACE_ROAD, REGION_EASTCHINA, TERRAIN_SANDY,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 170,
+            _west1 = "Liangzhou", _east1 = "Lanzhou"
             )
         liangzhou = Place(
             "Liangzhou",
-            PLACE_CITY, REGION_CENTRALCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_CITY, REGION_CENTRALCHINA, TERRAIN_OASIS,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 0,
+            _west1 = "Liangzhou-Suzhou", _east1 = "Lanzhou-Liangzhou"
+            )
+        liangzhou_suzhou = Place(
+            "Liangzhou-Suzhou",
+            PLACE_ROAD, REGION_EASTCHINA, TERRAIN_SANDY,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 275,
+            _west1 = "Suzhou", _east1 = "Liangzhou"
             )
         suzhou = Place(
             "Suzhou",
-            PLACE_TOWN, REGION_CENTRALCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_TOWN, REGION_CENTRALCHINA, TERRAIN_OASIS,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 0,
+            _west1 = "Liangzhou-Yumen", _east1 = "Liangzhou-Suzhou"
+            )
+        suzhou_yumen = Place(
+            "Liangzhou-Yumen",
+            PLACE_ROAD, REGION_EASTCHINA, TERRAIN_SANDY,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 95,
+            _west1 = "Yumen", _east1 = "Suzhou"
             )
         yumen = Place(
             "Yumen",
-            PLACE_TOWN, REGION_CENTRALCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_TOWN, REGION_CENTRALCHINA, TERRAIN_OASIS,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 0,
+            _west1 = "Yumen-Anxi", _east1 = "Liangzhou-Yumen"
+            )
+        yumen_anxi = Place(
+            "Yumen-Anxi",
+            PLACE_ROAD, REGION_EASTCHINA, TERRAIN_SANDY,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 85,
+            _west1 = "Anxi", _east1 = "Yumen"
             )
         anxi = Place(
             "Anxi",
-            PLACE_VILLAGE, REGION_CENTRALCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_VILLAGE, REGION_CENTRALCHINA, TERRAIN_OASIS,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 0,
+            _west1 = "Anxi-Dunhuang", _east1 = "Yumen-Anxi"
+            )
+        anxi_dunhuang = Place(
+            "Anxi-Dunhuang",
+            PLACE_ROAD, REGION_EASTCHINA, TERRAIN_SANDY,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 75,
+            _west1 = "Dunhuang", _east1 = "Anxi"
             )
         dunhuang = Place(
             "Dunhuang",
-            PLACE_TOWN, REGION_CENTRALCHINA, TERRAIN_OASIS, CLIMATE_CONTINENTAL,
-            length = 0
+            PLACE_TOWN, REGION_CENTRALCHINA, TERRAIN_OASIS,
+            CLIMATE_CONTINENTAL, GOVT_YUAN,
+            length = 0,
+            _west1 = "Hami", _west2 = "Qarkilik",
+            _east1 = "Anxi-Dunhuang"
             )
         
         self.path_1 = [zhengzhou, xian, baoji, tianshui, lanzhou, liangzhou,

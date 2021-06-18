@@ -20,16 +20,21 @@ path:
 Zhengzhou, China (East China) grassy [Yuan Dynasty]
 	300mi 480km
 -> Xi'an, China  (East China) grassy [Yuan Dynasty] {could make this the starting place for a smaller game}
-	
+	110mi, 175km
 -> Baoji, China  (East China) oasis [Yuan Dynasty]
-	
+	110mi, 175km
 -> Tianshui, China  (East China) oasis [Yuan Dynasty]
-	
+	190mi, 310km
 -> Lanzhou, China (Central China) oasis [Yuan Dynasty]
-	525mi 845mi
+	170mi, 275km
+-> Liangzhou (AKA Wuwei), China (Central China) oasis [Yuan Dynasty]
+	275mi, 445km
+-> Suzhou (AKA Jiuquan), China (Central China) oasis [Yuan Dynasty]
+	95mi, 150km
 -> Yumen (AKA Jade Gate), China  (Central China) town oasis [Yuan Dynasty]
-	150mi 240km
--> Anxi, China (Central China) village oasis [Yuan Dynasty]
+	85mi, 135km
+-> Anxi (AKA Guazhou), China (Central China) village oasis [Yuan Dynasty]
+	75mi, 120km
 -> Dunhuang, China (major city) (Central China) town oasis [Yuan Dynasty]
 		items: Buddha statues
 	255mi 410km to Hami
@@ -57,7 +62,7 @@ SW path (small villages and a major city, longer stretches, sandy desert with aw
 	-> Kashgar, China (major city) (West China) [Chagatai Khanate]
 		80mi 130km to Torugart
 	
-	80mi or 485mi depending on path taken
+	
 -> Torugart Pass, Kyrgyzstan (India) [Chagatai Khanate]
 -> Andijan, Uzbekistan (Central Asia) arid continental [Chagatai Khanate]
 -> Kokand, Uzbekistan  (Central Asia) arid continental [Chagatai Khanate]

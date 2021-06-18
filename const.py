@@ -161,18 +161,20 @@ MEALPANS={
 }
 
 # terrain
-TERRAIN_SANDY       = 0
-TERRAIN_ROCKY       = 1
-TERRAIN_BADLANDS    = 2
-TERRAIN_OASIS       = 3
-TERRAIN_GRASSY      = 4
-TERRAIN_TRANS_G_D   = 5 # transition from grassy to desert
+TERRAIN_SANDY       = 0 # sandy desert
+TERRAIN_ROCKY       = 1 # can be highland / mountainous
+TERRAIN_BADLANDS    = 2 # highland / mountainous, ultra arid
+TERRAIN_OASIS       = 3 # sandy desert punctuated with grassy oases
+TERRAIN_GRASSY      = 4 # plains
+TERRAIN_G_D         = 5 # partly grassy partly desert
 TERRAINS={
     # terrain           :(name,         pace_mod, %good, %bad events will happen)
-    TERRAIN_SANDY       :("sandy",      0,        0,     0,),
-    TERRAIN_ROCKY       :("rocky",      -1,       -1,    1,),
-    TERRAIN_BADLANDS    :("badlands",   -2,       -2,    2,),
+    TERRAIN_SANDY       :("sandy",      -1,       0,     0,),
+    TERRAIN_ROCKY       :("rocky",      -2,       -1,    1,),
+    TERRAIN_BADLANDS    :("badlands",   -3,       -2,    2,),
     TERRAIN_OASIS       :("oasis",      0,        10,    -3,),
+    TERRAIN_GRASSY      :("grassy",     0,        2,     0,),
+    TERRAIN_G_D         :("patchy",     0,        0,     0,),
 }
 
 CLIMATE_CONTINENTAL     = 1     # hot, humid summers w/ lots of rain, dry, cold winters
@@ -216,13 +218,13 @@ REGIONS = {
     REGION_TYRE         : "Mediterranean",
 }
 
-YUAN        = 1
-CHAGATAI    = 2
-ILKHANATE   = 3
+GOVT_YUAN        = 1
+GOVT_CHAGATAI    = 2
+GOVT_ILKHANATE   = 3
 GOVERNMENTS={
-    YUAN        : "Yuan Dynasty",
-    CHAGATAI    : "Chagatai Khanate", # has Mongolian raiders until 02/01/1326
-    ILKHANATE   : "Ilkhanate",
+    GOVT_YUAN       : "Yuan Dynasty",
+    GOVT_CHAGATAI   : "Chagatai Khanate", # has Mongolian raiders until 02/01/1326
+    GOVT_ILKHANATE  : "Ilkhanate",
 }
 
 
