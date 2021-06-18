@@ -44,7 +44,7 @@ NW path (bigger towns, rockier, colder climate, more thieves)
 	-> Urumqi, China (West China)
 		275mi 440km
 	-> Dzungarian Gate, China (West China)
-		485mi 780km to Torugart
+	-> Almaty, Kazahkstan
 SW path (small villages and a major city, longer stretches, sandy desert with awful sandstorms)
 		435mi 700km
 	-> Qarkilik (AKA Ruoqiang Town), China (West China)
