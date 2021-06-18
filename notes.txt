@@ -1,23 +1,91 @@
+Caravan Trail
+
+Time period 1325 AD
+
+You can choose to leave on the first of the month in any month of the year 1325. The entire caravan will leave together and travel as one unit.
+
+If you leave in the end of the year (fall / winter), it may be 1326 by the time you arrive in Kashgar / Torugart Pass, which is Chagatai Khanate territory, the relations between Yuan Dynasty and Chagatai Khanate are friendly, so you will not encounter Mongolian raiders anymore. (Typically, in Chagatai Khanate territory there are Mongolian raiders in addition to regular bandits but they stop coming in the second month of 1326.)
+
+
+Difficulty levels:
+	starter money is $1,000,000 in normal mode.
+	Score is 1 point per $ that you have at the end of the trip, -X for each dead merchant where X is 100k in easy mode, 200k in normal mode, and 500k in hard mode.
+	Easy -- start with 4x starter money. Score is worth 1/8 as much.
+	Normal -- start with regular amount of starter money. Score is worth regular amount.
+	Hard -- start with 1/4 starter money. Score is worth 8x as much.
+
+
 path:
 
-Xi'an, China
--> Lanzhou, China 250mi
--> Yumen, China 400mi
--> Dunhuang, China 50mi
+Zhengzhou, China (East China) grassy [Yuan Dynasty]
+	300mi 480km
+-> Xi'an, China  (East China) grassy [Yuan Dynasty] {could make this the starting place for a smaller game}
+	
+-> Baoji, China  (East China) oasis [Yuan Dynasty]
+	
+-> Tianshui, China  (East China) oasis [Yuan Dynasty]
+	
+-> Lanzhou, China (Central China) oasis [Yuan Dynasty]
+	525mi 845mi
+-> Yumen (AKA Jade Gate), China  (Central China) town oasis [Yuan Dynasty]
+	150mi 240km
+-> Anxi, China (Central China) village oasis [Yuan Dynasty]
+-> Dunhuang, China (major city) (Central China) town oasis [Yuan Dynasty]
+		items: Buddha statues
+	255mi 410km to Hami
+	435mi 700km to Ruoqiang Town
 
-NW path (1000mi, easier but longer path, colder climate, rockier terrain)
-	-> Hami, China 200mi
-	-> Turpan, China 150mi
-	-> Urumqi, China 50mi
-	-> Dzungaria, China 200mi
-	200mi to Turugart
-SW path (shorter @ 800mi but one LONG 500mi stretch w/ no stops; hotter climate, sandier terrain)
-	-> Hotan Prefecture, China 500mi
-	-> Yarkant Prefecture, China 200mi
-	-> Kashgar Prefecture, China 50mi
-	50mi to Turugart
+NW path (bigger towns, rockier, colder climate, more thieves)
+		255mi 410km
+	-> Hami, China  (West China)
+		255mi 410km
+	-> Turpan, China (West China)
+		120mi 195km
+	-> Urumqi, China (West China)
+		275mi 440km
+	-> Dzungarian Gate, China (West China)
+		485mi 780km to Torugart
+SW path (small villages and a major city, longer stretches, sandy desert with awful sandstorms)
+		435mi 700km
+	-> Qarkilik (AKA Ruoqiang Town), China (West China)
+	-> Niya Town, China (West China)
+	-> Keriya Town, China (West China) (river) 
+	-> Khotan, China (West China)
+		205mi 330km
+	-> Yarkant, China (West China)
+		120mi 195km
+	-> Kashgar, China (major city) (West China) [Chagatai Khanate]
+		80mi 130km to Torugart
 	
-	
--> Turugart Pass, 50mi or 200mi depending on path taken
--> Kokand, Uzbekistan 150mi
--> Tashkent, Uzbekistan 50mi
+	80mi or 485mi depending on path taken
+-> Torugart Pass, Kyrgyzstan (India) [Chagatai Khanate]
+-> Andijan, Uzbekistan (Central Asia) arid continental [Chagatai Khanate]
+-> Kokand, Uzbekistan  (Central Asia) arid continental [Chagatai Khanate]
+-> Tashkent, Uzbekistan 150mi (Central Asia) arid continental [Chagatai Khanate]
+-> Samarkand, Uzbekistan 190mi (Central Asia) arid continental [Chagatai Khanate]
+-> Merv, Turkmenistan arid continental [Ilkhanate]
+-> Mashhad, Iran (Central Asia) cold desert [Ilkhanate]
+-> Ray (AKA Tehran), Iran (Middle East) cold desert [Ilkhanate]
+-> Mahadan, Iran  (Middle East) cold desert [Ilkhanate]
+-> Kermanshah, Iran (Middle East) cold desert [Ilkhanate]
+-> Baquba, Iraq (Middle East) desert [Ilkhanate]
+-> Baghdad, Iraq (Middle East) desert [Ilkhanate]
+-> Fallujah, Iraq (Middle East) [Ilkhanate]
+-> Dura-Europos, Syria (Middle East) [Ilkhanate]
+-> Palmyra, Syria (Middle East) [Ilkhanate]
+-> Damascus, Syria (major city) (Middle East) [Ilkhanate]
+-> Tyre, Lebanon (Middle East) [Ilkhanate]
+
+
+
+Sep - May : winter in the north areas, -40C
+
+
+
+
+
+
+
+
+
+

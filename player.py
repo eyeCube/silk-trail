@@ -37,8 +37,8 @@ class Character:
     def hp_max(self): return self._hp_max
     @property
     def status(self): return self._status
-    @property
-    def hydration(self): return self._hydration
+##    @property
+##    def hydration(self): return self._hydration
     @property
     def satiety(self): return self._satiety
 
@@ -66,22 +66,32 @@ class Character:
     def feed(self, x=1):
         self._satiety = min(SATIETY_MAX, self._satiety + x*SATIETY_FOOD)
         
-    @_checkdead
-    def dehydrate(self, x=1, exertion_level=1):
-        self._hydration -= x*DEHYDRATION_RATE*(0.5 + 0.5*exertion_level)
-        if self._hydration <= 0:
-            self.die()
-    @_checkdead
-    def hydrate(self, x=1):
-        self._hydration = min(HYDRATION_MAX, self._hydration + x*HYDRATION_WATER)
+##    @_checkdead
+##    def dehydrate(self, x=1, exertion_level=1):
+##        self._hydration -= x*DEHYDRATION_RATE*(0.5 + 0.5*exertion_level)
+##        if self._hydration <= 0:
+##            self.die()
+##    @_checkdead
+##    def hydrate(self, x=1):
+##        self._hydration = min(HYDRATION_MAX, self._hydration + x*HYDRATION_WATER)
+
+    def manage_hydration(self, waterAmount, exertion):
+        waterUsage = DEHYDRATION_RATE + exertion*EXERT_DEHYDRATION_RATE
+        if waterUsage > waterAmount:
+            self.hp -= 10
+            # (chance to) lose health and/or get sick
+            # message: drink from muddy water source / dehydrate
+        return waterUsage
 
 # end class
 
 class Player:
-    def __init__(self): # after init, call initialize_ function(s)
+    def __init__(self, month=1): # after init, call initialize_ function(s)
         self.characters = {}
         self.tokill = set()
-        self.time = 0       # time elapsed since start of game.
+        self.day = 1
+        self.month = month
+        self.year = 2       # 1325 - year of the Ox
         self.food = 0       # oz.
         self.money = 0      # $
         self.water = 0      # fluid oz.
@@ -142,25 +152,71 @@ class Player:
         self.characters[name].feed(x)
     # end def
 
-    def pass_minutes(self, minutes=1, thirst_rate=1):
+    def pass_day(self, thirst_rate=1):
+        ''' thirst_rate is float, based on climate '''
+        
+        def _advance_month():
+            self.day = 1
+            if self.month < 12:
+                self.month += 1
+            else:
+                self.month = 1
+                self.year += 1
+                
         intensity = self.get_intensity()
-        self.time += minutes
+
+        self.day += 1
+        
+        if (self.month == 2 and self.day == 28
+            or self.month % 2 == 0 and self.day == 30
+            or self.day == 31):
+            _advance_month()
+            
         for character in self.characters.values():
             thirst_exertion = round(thirst_rate*intensity)
-            character.dehydrate(minutes, exertion_level=thirst_exertion)
-            character.metabolize(minutes, exertion_level=intensity)
+            
+            if self.water > 0:
+                self.water = character.manage_hydration(
+                    self.water,
+                    exertion_level = thirst_exertion
+                    )
+                if self.water <= 0:
+                    self.water = 0
+                    msg.out("You've run out of water!")
+                
+            if self.food > 0:
+                self.food = character.manage_satiety(
+                    self.food,
+                    exertion_level = intensity
+                    )
+                if self.food <= 0:
+                    self.food = 0
+                    msg.out("You've run out of food!")
 
-    def get_time(self):
+        # feed and give water to all mercenaries, guides, camels, cattle, horses.
+    # end def
+            
+    def get_date(self):
         string = ""
-        string += "{}:".format(str(self.time//(60*24) + 1))
-        string += "{}".format((self.time//60) % 24).rjust(2, '0') + ":"
-        string += "{}".format(self.time % 60).rjust(2, '0')
-        return string
+        string += MONTHS[self.month]['name'] + " "
+        string += self.day + ", "
+        string += YEARS[self.year]
+
+##    def get_time(self):
+##        string = ""
+##        string += "{}:".format(str(self.time//(60*24) + 1))
+##        string += "{}".format((self.time//60) % 24).rjust(2, '0') + ":"
+##        string += "{}".format(self.time % 60).rjust(2, '0')
+##        return string
 
     def set_time(self, value):
         self.time = max(0, value)
         
     def run_game(self):
+        if self.game_state == GAMESTATE_TRAVEL:
+            self.run_travel()
+
+    def run_travel(self):
         elapsed = 0
         t = 120
         while t > 0:
