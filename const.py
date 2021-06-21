@@ -3,6 +3,8 @@
 
 '''
 
+YEAR = 1323 # add to the Player year value to get A.D. year
+
 K=1000
 
 STATUS_HEALTHY      = 0
@@ -69,39 +71,39 @@ ITEMS={
     # $In - price in India
     # $CA - price in Central Asia
     # $ME - price in Middle East
-    # $Ty - price in Tyre, Lebanon
-    # item      : name,             weight, dura,$EC, $CC, $WC, $In, $CA, $ME, $Ty
-    FOOD        :("oz. of food",    1,      3,   4,   3,   3,   2,   3,   3,   4,),
-    WATER       :("oz. of water",   1,      2,   1,   1,   1,   1,   2,   3,   3,),
-    TORCH       :("torches",        10,     10,  3,   3,   4,   5,   6,   6,   8,),
-    TINDER      :("bundles of tinder",0,    5,   1,   1,   1,   1,   1,   2,   3,),
-    CLOAK       :("cloaks",         20,     6,   250, 175, 125, 150, 200, 250, 300,),
-    CAMEL       :("camels",         0,      8,   2400,2000,1600,1200,800, 1000,1200,),
-    SADDLEBAG   :("saddlebags",     0,      7,   50,  45,  40,  35,  30,  25,  50,),
-    WEAPON      :("weapons",        OZLB*2, 9,   100, 150, 200, 250, 300, 350, 400,) ,
-    COPPER      :("pennies",        0,      10,  1,   1,   1,   1,   1,   1,   1,),
-    SILVER      :("silver coins",   0,      10,  10,  10,  10,  10,  10,  10,  10,),
-    GOLD        :("gold coins",     0,      10,  100, 100, 100, 100, 100, 100, 100,),
-    GRAIN       :("oz. of grain",   1,      4,   4,   6,   8,   10,  12,  14,  16,),
-    PAPER       :("lb. of paper",   OZLB,   4,   480, 720, 800, 960, 1200,1440,1600,),
-    BRONZE      :("bronzeware",     OZLB*1, 9,   80,  60,  75,  100, 125, 150, 200,),
-    PORCELAIN   :("porcelainware",  8,      1,   20,  40,  80,  120, 180, 240, 360,),
-    SILK        :("rolls of silk",  4,      4,   1600,1200,800, 1000,1600,2400,3600,),
-    TEA         :("oz. of tea",     1,      3,   20,  40,  60,  80,  100, 150, 200,),
-    JADE        :("oz. of jade",    1,      5,   500, 400, 300, 400, 500, 600, 750,),
-    FABRIC      :("rolls of khadi", 4,      6,   2000,1500,1000,500, 1000,1250,1500,),
-    SPICE       :("oz. of spices",  1,      5,   16,  12,  10,  6,   8,   10,  12,),
-    DYE         :("oz. of dye",     1,      1,   100, 75,  40,  20,  60,  120, 160,),
-    IVORY       :("lb. of ivory",   OZLB*1, 10,  1800,1600,1400,1200,1400,1600,2000,),
-    IDOL        :("Buddha statues", 4,      5,   1600,1200,800, 400, 800, 1200,1600,),
-    COTTON      :("rolls of cotton",4,      5,   800, 600, 400, 300, 200, 350, 500,),
-    WOOL        :("rolls of wool",  4,      6,   700, 500, 350, 250, 150, 200, 300,),
-    RICE        :("oz. of rice",    1,      4,   1,   2,   4,   6,   12,  18,  24,),
-    SCROLL      :("scrolls",        6,      2,   32*K,28*K,24*K,20*K,16*K,12*K,8*K),
-    FUR         :("rolls of fur",   4,      4,   600, 500, 400, 300, 200, 150, 100,),
-    HONEY       :("oz. of honey",   1,      6,   75,  60,  50,  40,  30,  25,  20,),
-    CATTLE      :("cattle",         0,      7,   1200,900, 600, 400, 450, 500, 400,),
-    HORSE       :("horses",         0,      7,   1400,1000,800, 700, 650, 600, 500,),
+    # $MN - price in Mediterranean
+    # item      : name,             weight, dur,($EC, $CC, $WC, $In, $CA, $ME, $MN)
+    FOOD        :("oz. of food",    1,      3,  (4,   3,   3,   2,   3,   3,   4,),),
+    WATER       :("oz. of water",   1,      2,  (1,   1,   1,   1,   2,   3,   3,),),
+    TORCH       :("torches",        10,     10, (3,   3,   4,   5,   6,   6,   8,),),
+    TINDER      :("bundles of tinder",0,    5,  (1,   1,   1,   1,   1,   2,   3,),),
+    CLOAK       :("cloaks",         20,     6,  (250, 175, 125, 150, 200, 250, 300,),),
+    CAMEL       :("camels",         0,      8,  (2400,2000,1600,1200,800, 1000,1200,),),
+    SADDLEBAG   :("saddlebags",     0,      7,  (50,  45,  40,  35,  30,  25,  50,),),
+    WEAPON      :("weapons",        OZLB*2, 9,  (100, 150, 200, 250, 300, 350, 400,),),
+    COPPER      :("pennies",        0,      10, (1,   1,   1,   1,   1,   1,   1,),),
+    SILVER      :("silver coins",   0,      10, (10,  10,  10,  10,  10,  10,  10,),),
+    GOLD        :("gold coins",     0,      10, (100, 100, 100, 100, 100, 100, 100,),),
+    GRAIN       :("oz. of grain",   1,      4,  (4,   6,   8,   10,  12,  14,  16,),),
+    PAPER       :("lb. of paper",   OZLB,   4,  (480, 720, 800, 960, 1200,1440,1600,),),
+    BRONZE      :("bronzeware",     OZLB*1, 9,  (80,  60,  75,  100, 125, 150, 200,),),
+    PORCELAIN   :("porcelainware",  8,      1,  (20,  40,  80,  120, 180, 240, 360,),),
+    SILK        :("rolls of silk",  4,      4,  (1600,1200,800, 1000,1600,2400,3600,),),
+    TEA         :("oz. of tea",     1,      3,  (20,  40,  60,  80,  100, 150, 200,),),
+    JADE        :("oz. of jade",    1,      5,  (500, 400, 300, 400, 500, 600, 750,),),
+    FABRIC      :("rolls of khadi", 4,      6,  (2000,1500,1000,500, 1000,1250,1500,),),
+    SPICE       :("oz. of spices",  1,      5,  (16,  12,  10,  6,   8,   10,  12,),),
+    DYE         :("oz. of dye",     1,      1,  (100, 75,  40,  20,  60,  120, 160,),),
+    IVORY       :("lb. of ivory",   OZLB*1, 10, (1800,1600,1400,1200,1400,1600,2000,),),
+    IDOL        :("Buddha statues", 4,      5,  (1600,1200,800, 400, 800, 1200,1600,),),
+    COTTON      :("rolls of cotton",4,      5,  (800, 600, 400, 300, 200, 350, 500,),),
+    WOOL        :("rolls of wool",  4,      6,  (700, 500, 350, 250, 150, 200, 300,),),
+    RICE        :("oz. of rice",    1,      4,  (1,   2,   4,   6,   12,  18,  24,),),
+    SCROLL      :("scrolls",        6,      2,  (32*K,28*K,24*K,20*K,16*K,12*K,8*K),),
+    FUR         :("rolls of fur",   4,      4,  (600, 500, 400, 300, 200, 150, 100,),),
+    HONEY       :("oz. of honey",   1,      6,  (75,  60,  50,  40,  30,  25,  20,),),
+    CATTLE      :("cattle",         0,      7,  (1200,900, 600, 400, 450, 500, 400,),),
+    HORSE       :("horses",         0,      7,  (1400,1000,800, 700, 650, 600, 500,),),
 }
 
 
@@ -207,7 +209,7 @@ REGION_WESTCHINA = 3
 REGION_INDIA = 4
 REGION_CENTRALASIA = 5
 REGION_MIDDLEEAST = 6
-REGION_TYRE = 7
+REGION_MEDITERRANEAN = 7
 REGIONS = {
     REGION_EASTCHINA    : "East China", 
     REGION_CENTRALCHINA : "Central China", 
@@ -215,7 +217,7 @@ REGIONS = {
     REGION_INDIA        : "India", 
     REGION_CENTRALASIA  : "Central Asia", 
     REGION_MIDDLEEAST   : "Middle East", 
-    REGION_TYRE         : "Mediterranean",
+    REGION_MEDITERRANEAN: "Mediterranean",
 }
 
 GOVT_YUAN        = 1
@@ -283,20 +285,133 @@ EVENTS=[ # idea: instead of doing this, just make a big function that handles
 ]
 
 MONTHS = { # Julian calendar
-    1 : ('name':"Ianuarius", 'temp':12,),
-    2 : ('name':"Februarius", 'temp':12,),
-    3 : ('name':"Martius", 'temp':12,),
-    4 : ('name':"Aprilis", 'temp':12,),
-    5 : ('name':"Iunius", 'temp':12,),
-    6 : ('name':"Maius", 'temp':12,),
-    7 : ('name':"Quintilis", 'temp':12,),
-    8 : ('name':"Sextilis", 'temp':12,),
-    9 : ('name':"September", 'temp':12,),
-    10: ('name':"October", 'temp':12,),
-    11: ('name':"November", 'temp':12,),
-    12: ('name':"December",   'temp':12,),  
+    1 : {'name':"Ianuarius", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_WINTER_COLD,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_WINTER_WET,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_WINTER_SNOWY,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_WINTER_FREEZING,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_WINTER_SNOWY,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_WINTER_IRREGULAR,
+            CLIMATE_DESERT          : WEATHERCYCLE_WINTER_STORMS,
+        },},
+    2 : {'name':"Februarius", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_WINTER_MILD,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_WINTER_MILD,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_WINTER_COLD,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_WINTER_STORMS,
+        },},
+    3 : {'name':"Martius", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_SPRING_CHILL,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_SPRING_CHILL,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_WINTER_MILD,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_,
+        },},
+    4 : {'name':"Aprilis", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_SPRING_RAINY,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_SPRING_RAINY,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_SPRING_CHILL,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_,
+        },},
+    5 : {'name':"Iunius", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_SPRING_RAINY,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_SPRING_RAINY,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_SPRING_CHILL,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_,
+        },},
+    6 : {'name':"Maius", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_SUMMER_MUGGY,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_SUMMER_MUGGY,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_SUMMER_MILD,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_,
+        },},
+    7 : {'name':"Quintilis", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_SUMMER_HOT,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_SUMMER_MUGGY,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_SUMMER_MILD,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_,
+        },},
+    8 : {'name':"Sextilis", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_SUMMER_MUGGY,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_SUMMER_MUGGY,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_FALL_COLD,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_,
+        },},
+    9 : {'name':"September", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_FALL_CHILL,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_FALL_WET,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_FALL_COLD,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_SUMMER_DRY,
+        },},
+    10: {'name':"October", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_FALL_CHILL,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_FALL_WET,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_FALL_COLD,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_FALL_CHILL,
+        },},
+    11: {'name':"November", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_WINTER_MILD,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_WINTER_MILD,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_WINTER_COLD,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_FALL_COLD,
+        },},
+    12: {'name':"December", 'weather':{
+            CLIMATE_CONTINENTAL     : WEATHERCYCLE_WINTER_COLD,
+            CLIMATE_TEMPERATE       : WEATHERCYCLE_WINTER_WET,
+            CLIMATE_HIGHLAND        : WEATHERCYCLE_WINTER_COLD,
+            CLIMATE_MOUNTAINOUS     : WEATHERCYCLE_,
+            CLIMATE_COLDDESERT      : WEATHERCYCLE_,
+            CLIMATE_ARIDCONTINENTAL : WEATHERCYCLE_,
+            CLIMATE_DESERT          : WEATHERCYCLE_WINTER_STORMS,
+        },},  
 }
-YEARS = {
+
+##CLIMATE_CONTINENTAL     = 1     # hot, humid summers w/ lots of rain, dry, cold winters
+##CLIMATE_TEMPERATE       = 2     # lots of rain, mild-cold weather
+##CLIMATE_HIGHLAND        = 3     # dry, cold weather
+##CLIMATE_MOUNTAINOUS     = 4     # arid, very cold winters
+##CLIMATE_COLDDESERT      = 5     # freezing snowy winters, mild sping/fall, dry/hot summer
+##CLIMATE_ARIDCONTINENTAL = 6     # long, dry, hot summer, irregular winter
+##CLIMATE_DESERT          = 7     # long, dry summers, short, cool winters, occasional violent storms in winter.
+
+##WEATHER_FAIR        = 0
+##WEATHER_COLD        = 1
+##WEATHER_FREEZING    = 2
+##WEATHER_HOT         = 3
+##WEATHER_BLAZING     = 4
+##WEATHER_STORM       = 5
+##WEATHER_DUSTSTORM   = 6
+
+ZODIAC = { 
     1 : "Rat",
     2 : "Ox",
     3 : "Tiger",
@@ -310,9 +425,11 @@ YEARS = {
     11: "Dog",
     12: "Pig",
 }
+
 HISTORY = {
-    "stop mongol raids" : (2*12 + 2, "Khan Ozbeg reopens friendly relations with the Yuan Dynasty.",),
-    "civil war begins" : (5*12 + 11, "El Temur overthrows the court of Shangdu, resulting in the Yuan Dynasty erupting into civil war.",),
+    # ID : (month, day, year, message),
+    "stop mongol raids" : (2, 1, 2, "Khan Ozbeg reopens friendly relations with the Yuan Dynasty.",),
+    "civil war begins" : (5, 15, 11, "El Temur overthrows the court of Shangdu, resulting in the Yuan Dynasty erupting into civil war.",),
 }
 
 
