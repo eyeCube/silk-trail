@@ -201,7 +201,7 @@ class Player:
         string = ""
         string += MONTHS[self.month]['name'] + " "
         string += self.day + ", "
-        string += YEARS[self.year]
+        string += "Year of the " + YEARS[self.year]
 
 ##    def get_time(self):
 ##        string = ""
