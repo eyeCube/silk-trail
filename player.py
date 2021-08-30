@@ -30,7 +30,6 @@ class Character:
         return self._name #"Character: '{}'".format(self._name)
         
     @property
-<<<<<<< HEAD
     def hp(self): # use harm / heal functions to alter hp stat
         return self._hp
     @property
@@ -40,15 +39,6 @@ class Character:
     def name(self):
         return self._name
     
-=======
-    def name(self): return self._name
-    @property
-    def status(self): return self._status
-    @property
-    def hp(self): return self._hp
-    @property
-    def hpMax(self): return self._hpMax
->>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
 ##    @property
 ##    def hydration(self): return self._hydration
     @property
@@ -164,18 +154,12 @@ class Character:
 # end class
 
 class Player:
-<<<<<<< HEAD
     def __init__(self, month=1, year=2, startloc=trail.Trail.zhengzhou):
         # - after init, call initialize_ function(s)
-=======
-    def __init__(self, month=1, year=2, startloc="Xi'an"):
-        # after init, call initialize function(s)
->>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
         self.characters = {}
         self.toKill = set()
         self.day = 1
         self.month = month
-<<<<<<< HEAD
         self.year = year       # 1 == 1324
         self.inventory = {}
         self.weather = WEATHER_FAIR
@@ -183,15 +167,6 @@ class Player:
         self.location = startloc
 
         self.events = self.populate_events()
-        
-=======
-        self.year = year    # 1 == 1324, 12 == 1335 (max)
-        self.items = {}
-        self.weather = WEATHER_FAIR
-        self.pace = PACE_STOPPED
-        self.location = startloc    # (string) current Place we are at
-        self.position = 0 # (float) miles: position inside the current location
->>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
     # end def
         
     def initializeCharacters(self):
@@ -232,13 +207,8 @@ class Player:
 
     def getIntensity(self):
         return INTENSITY[self.weather].get(self.pace, 0)
-<<<<<<< HEAD
     def get_carry_capacity(self):
         # - simple rules. Camels are picky.
-=======
-    def getCarryCapacity(self):
-        # simple rules. Camels are picky.
->>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
         #   Each camel can carry either one character OR up to X kg supplies
         v = CAMEL_CARRY - self.getIntensity()*CAMEL_CARRY_PENALTY
         camelMax = v * (self.getItemQuantity(CAMEL) - len(self.characters))
@@ -266,16 +236,11 @@ class Player:
         self.characters[name].feed(x)
     # end def
 
-<<<<<<< HEAD
     def add_status(self, character, status):
         character.status = max(character.status, status)
 
     def pass_day(self, thirst_rate=1):
-        ''' thirst_rate is float, basedmiles on climate '''
-=======
-    def passDay(self, thirstRate=1):
         ''' thirst_rate is float, based on climate '''
->>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
         
         def _advanceMonth():
             self.day = 1
@@ -337,21 +302,8 @@ class Player:
         if self.game_state == GAMESTATE_TRAVEL:
             self.runTravel()
 
-<<<<<<< HEAD
     def run_travel(self):
         mode = 'wait'
-=======
-    def runTravel(self):
-        elapsed = 0
-        t = 120
-        while t > 0:
-            t -= 5
-            elapsed += 5
-            for ev
-        
-        self.pass_minutes(elapsed)
-        
->>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
         
         while True:
             if mode == 'wait':

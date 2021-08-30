@@ -398,28 +398,7 @@ MONTHS = { # Julian calendar
             CLIMATE_DESERT          : WEATHERCYCLE_WINTER_STORMS,
         },},  
 }
-<<<<<<< HEAD
 YEARS = { # zodiac
-=======
-
-##CLIMATE_CONTINENTAL     = 1     # hot, humid summers w/ lots of rain, dry, cold winters
-##CLIMATE_TEMPERATE       = 2     # lots of rain, mild-cold weather
-##CLIMATE_HIGHLAND        = 3     # dry, cold weather
-##CLIMATE_MOUNTAINOUS     = 4     # arid, very cold winters
-##CLIMATE_COLDDESERT      = 5     # freezing snowy winters, mild sping/fall, dry/hot summer
-##CLIMATE_ARIDCONTINENTAL = 6     # long, dry, hot summer, irregular winter
-##CLIMATE_DESERT          = 7     # long, dry summers, short, cool winters, occasional violent storms in winter.
-
-##WEATHER_FAIR        = 0
-##WEATHER_COLD        = 1
-##WEATHER_FREEZING    = 2
-##WEATHER_HOT         = 3
-##WEATHER_BLAZING     = 4
-##WEATHER_STORM       = 5
-##WEATHER_DUSTSTORM   = 6
-
-ZODIAC = { 
->>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
     1 : "Rat",
     2 : "Ox",
     3 : "Tiger",
