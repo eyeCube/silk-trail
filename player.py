@@ -22,7 +22,7 @@ class Character:
         self._player = player
         self._name = name
         self._hp = hp       # health, includes tiredness / sleepiness / hydration
-        self._hp_max = hp
+        self._hpMax = hp
         self._satiety = SATIETY_MAX
         self._plague = 0
 
@@ -30,6 +30,7 @@ class Character:
         return self._name #"Character: '{}'".format(self._name)
         
     @property
+<<<<<<< HEAD
     def hp(self): # use harm / heal functions to alter hp stat
         return self._hp
     @property
@@ -39,6 +40,15 @@ class Character:
     def name(self):
         return self._name
     
+=======
+    def name(self): return self._name
+    @property
+    def status(self): return self._status
+    @property
+    def hp(self): return self._hp
+    @property
+    def hpMax(self): return self._hpMax
+>>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
 ##    @property
 ##    def hydration(self): return self._hydration
     @property
@@ -123,7 +133,7 @@ class Character:
             self.die('exhaustion')
     @_checkdead
     def heal(self, value):
-        self._hp = min(self._hp_max, self._hp + value)
+        self._hp = min(self._hpMax, self._hp + value)
 
     @_checkdead
     def metabolize(self, x=1, exertion_level=1):
@@ -143,7 +153,7 @@ class Character:
 ##    def hydrate(self, x=1):
 ##        self._hydration = min(HYDRATION_MAX, self._hydration + x*HYDRATION_WATER)
 
-    def manage_hydration(self, waterAmount, exertion):
+    def manageHydration(self, waterAmount, exertion):
         waterUsage = DEHYDRATION_RATE + exertion*EXERT_DEHYDRATION_RATE
         if waterUsage > waterAmount:
             self.hp -= 10
@@ -154,12 +164,18 @@ class Character:
 # end class
 
 class Player:
+<<<<<<< HEAD
     def __init__(self, month=1, year=2, startloc=trail.Trail.zhengzhou):
         # - after init, call initialize_ function(s)
+=======
+    def __init__(self, month=1, year=2, startloc="Xi'an"):
+        # after init, call initialize function(s)
+>>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
         self.characters = {}
-        self.tokill = set()
+        self.toKill = set()
         self.day = 1
         self.month = month
+<<<<<<< HEAD
         self.year = year       # 1 == 1324
         self.inventory = {}
         self.weather = WEATHER_FAIR
@@ -168,9 +184,17 @@ class Player:
 
         self.events = self.populate_events()
         
+=======
+        self.year = year    # 1 == 1324, 12 == 1335 (max)
+        self.items = {}
+        self.weather = WEATHER_FAIR
+        self.pace = PACE_STOPPED
+        self.location = startloc    # (string) current Place we are at
+        self.position = 0 # (float) miles: position inside the current location
+>>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
     # end def
         
-    def initialize_characters(self):
+    def initializeCharacters(self):
         self.characters = {}
         i = 1
         while i <= 5:
@@ -186,27 +210,52 @@ class Player:
             ui.show(character)
     # end def
 
-    def get_intensity(self):
+    def getItemName(self, itemID):
+        return ITEMS[itemID][0]
+    def getItemWeight(self, itemID):
+        return ITEMS[itemID][1]
+    def getItemDurability(self, itemID):
+        return ITEMS[itemID][2]
+    def getItemCost(self, itemID, location=None):
+        if not location:
+            location = self.location
+        regionID = self.trail.getPlaceByName(location).region
+        return ITEMS[itemID][2 + regionID]
+    def getItemQuantity(self, itemID):
+        return self.items.get(itemID, 0)
+    def setItemQuantity(self, itemID, quantity):
+        self.items[itemID] = quantity
+    def changeItemQuantity(self, itemID, quantity):
+        self.items[itemID] = max(0, self.getItemQuantity(itemID) + quantity)
+    def calcValue(self, itemID, barterRate=1.0):
+        return barterRate * self.getItemQuantity(itemID) * self.getItemCost(itemID)
+
+    def getIntensity(self):
         return INTENSITY[self.weather].get(self.pace, 0)
+<<<<<<< HEAD
     def get_carry_capacity(self):
         # - simple rules. Camels are picky.
+=======
+    def getCarryCapacity(self):
+        # simple rules. Camels are picky.
+>>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
         #   Each camel can carry either one character OR up to X kg supplies
-        v = CAMEL_CARRY - self.get_intensity()*CAMEL_CARRY_PENALTY
-        camelMax = v * (self.camels - len(self.characters))
+        v = CAMEL_CARRY - self.getIntensity()*CAMEL_CARRY_PENALTY
+        camelMax = v * (self.getItemQuantity(CAMEL) - len(self.characters))
         return max(0, min(camelMax, self.saddlebags*SADDLEBAG_KG))
-    def get_carry_weight(self):
-        return ceil(
-            (self.food + self.water + self.guns*GUNS_WEIGHT)/OZLB
-            )
-    def get_defense(self):
-        return min(len(self.characters), self.guns)
+##    def getCarryWeight(self):
+##        return ceil(
+##            (self.food + self.water + self.guns*GUNS_WEIGHT)/OZLB
+##            )
+##    def getDefense(self):
+##        return min(len(self.characters), self.guns)
 
     def kill(self, name): # call to mark character as dead
-        self.tokill.add(name)
-    def process_dead(self): # call at end of cycle
-        for name in self.tokill:
+        self.toKill.add(name)
+    def processDead(self): # call at end of cycle
+        for name in self.toKill:
             del self.characters[name]
-        self.tokill = set()
+        self.toKill = set()
 
     def feed(self, name, x=1):
         if self.food < x:
@@ -217,13 +266,18 @@ class Player:
         self.characters[name].feed(x)
     # end def
 
+<<<<<<< HEAD
     def add_status(self, character, status):
         character.status = max(character.status, status)
 
     def pass_day(self, thirst_rate=1):
         ''' thirst_rate is float, basedmiles on climate '''
+=======
+    def passDay(self, thirstRate=1):
+        ''' thirst_rate is float, based on climate '''
+>>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
         
-        def _advance_month():
+        def _advanceMonth():
             self.day = 1
             if self.month < 12:
                 self.month += 1
@@ -231,31 +285,30 @@ class Player:
                 self.month = 1
                 self.year += 1
                 
-        intensity = self.get_intensity()
-
+        intensity = self.getIntensity()
         self.day += 1
         
         if (self.month == 2 and self.day == 28
             or self.month % 2 == 0 and self.day == 30
             or self.day == 31):
-            _advance_month()
+            _advanceMonth()
             
         for character in self.characters.values():
-            thirst_exertion = round(thirst_rate*intensity)
+            thirstExertion = round(thirstRate*intensity)
             
             if self.water > 0:
-                self.water = character.manage_hydration(
+                self.water = character.manageHydration(
                     self.water,
-                    exertion_level = thirst_exertion
+                    exertionLevel = thirst_exertion
                     )
                 if self.water <= 0:
                     self.water = 0
                     ui.show("You've run out of water!")
                 
             if self.food > 0:
-                self.food = character.manage_satiety(
+                self.food = character.manageSatiety(
                     self.food,
-                    exertion_level = intensity
+                    exertionLevel = intensity
                     )
                 if self.food <= 0:
                     self.food = 0
@@ -264,11 +317,11 @@ class Player:
         # - feed and give water to all mercenaries, guides, camels, cattle, horses.
     # end def
             
-    def get_date(self):
+    def getDate(self):
         string = ""
         string += MONTHS[self.month]['name'] + " "
         string += self.day + ", "
-        string += "Year of the " + YEARS[self.year]
+        string += "Year of the " + ZODIAC[self.year]
 
 ##    def get_time(self):
 ##        string = ""
@@ -277,15 +330,28 @@ class Player:
 ##        string += "{}".format(self.time % 60).rjust(2, '0')
 ##        return string
 
-    def set_time(self, value):
+    def setTime(self, value):
         self.time = max(0, value)
         
-    def run_game(self):
+    def runGame(self):
         if self.game_state == GAMESTATE_TRAVEL:
-            self.run_travel()
+            self.runTravel()
 
+<<<<<<< HEAD
     def run_travel(self):
         mode = 'wait'
+=======
+    def runTravel(self):
+        elapsed = 0
+        t = 120
+        while t > 0:
+            t -= 5
+            elapsed += 5
+            for ev
+        
+        self.pass_minutes(elapsed)
+        
+>>>>>>> 5c38f1020f522c1978b49b0dd03b9adae1a88b2c
         
         while True:
             if mode == 'wait':
