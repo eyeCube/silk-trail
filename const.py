@@ -5,8 +5,11 @@
 
 K=1000
 
-STATUS_HEALTHY      = 0
-STATUS_ = 1
+# status of characters
+STATUS_DYSENTERY    = 1
+STATUS_BROKENBONE   = 2
+STATUS_PLAGUE       = 3
+STATUS_CRITICAL     = 4
 
 OZLB                = 12    # oz. in a pound
 SADDLEBAG_LB        = 50    # max capacity per saddlebag (need camels)
@@ -194,11 +197,12 @@ PLACE_TOWN = 3 # small city
 PLACE_CITY = 4 # major city
 PLACE_CAPITAL = 5 # most important city but may not be as large as other major cities
 PLACES={
-    PLACE_ROAD      :("road",),
-    PLACE_VILLAGE   :("village",),
-    PLACE_TOWN      :("town",),
-    PLACE_CITY      :("city",),
-    PLACE_CAPITAL   :("major city",),
+    # id            :(name, plague chance)
+    PLACE_ROAD      :("road", 0,),
+    PLACE_VILLAGE   :("village", 1,),
+    PLACE_TOWN      :("town", 3,),
+    PLACE_CITY      :("city", 12,),
+    PLACE_CAPITAL   :("major city", 32,),
 }
 
 REGION_EASTCHINA = 1
@@ -296,7 +300,7 @@ MONTHS = { # Julian calendar
     11: ('name':"November", 'temp':12,),
     12: ('name':"December",   'temp':12,),  
 }
-YEARS = {
+YEARS = { # zodiac
     1 : "Rat",
     2 : "Ox",
     3 : "Tiger",

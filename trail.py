@@ -5,7 +5,8 @@ class Place:
     def __init__(self,
         name:str,
         kind:int, region:int, terrain:int, climate:int, govt:int,
-        length=0
+        length=0,
+        _west1=None, _west2=None, _east1=None, _east2=None
         ):
         '''
             name: place's name as it was in medieval times
@@ -14,6 +15,8 @@ class Place:
             terrain: TERRAIN_ const
             climate: CLIMATE_ const
             length: how many miles wide? Applies only to Road types
+            _west / _east 1 & 2: what Place is west / east of here?
+                there may be two options in one direction in cases of forked paths
         '''
         self.kind = kind
         self.name = name
@@ -23,7 +26,7 @@ class Place:
         self.govt = govt
         self.length = length
 
-class CaravanTrail:
+class Trail: # Caravan Trail 
     def __init__(self):
         
         # create settlements
@@ -117,10 +120,10 @@ class CaravanTrail:
             PLACE_TOWN, REGION_CENTRALCHINA, TERRAIN_OASIS,
             CLIMATE_CONTINENTAL, GOVT_YUAN,
             length = 0,
-            _west1 = "Liangzhou-Yumen", _east1 = "Liangzhou-Suzhou"
+            _west1 = "Suzhou-Yumen", _east1 = "Liangzhou-Suzhou"
             )
         suzhou_yumen = Place(
-            "Liangzhou-Yumen",
+            "Suzhou-Yumen",
             PLACE_ROAD, REGION_EASTCHINA, TERRAIN_SANDY,
             CLIMATE_CONTINENTAL, GOVT_YUAN,
             length = 95,
@@ -159,7 +162,7 @@ class CaravanTrail:
             PLACE_TOWN, REGION_CENTRALCHINA, TERRAIN_OASIS,
             CLIMATE_CONTINENTAL, GOVT_YUAN,
             length = 0,
-            _west1 = "Hami", _west2 = "Qarkilik",
+            _west1 = "Dunhuang-Hami", _west2 = "Dunhuang-Qarkilik",
             _east1 = "Anxi-Dunhuang"
             )
         
